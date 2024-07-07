@@ -1,0 +1,435 @@
+/* Styles globaux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+ 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Empêche le surplus d'affichage à droite */
+      background-color : #365c34;
+     color: white;
+}
+
+/* En-tête de page */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+      height: 10px; /* Définissez la hauteur souhaitée */
+    text-align: center;
+    transition: background-color 0.3s ease;
+    background-color : #365c34;
+}
+main {
+    margin-top: 80px; /* Ajustez cette valeur en fonction de la hauteur de l'en-tête */
+}
+/* Barre de navigation */
+nav {
+    background-color : transparent;
+    display: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1em;
+    
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 1em;
+    display: block;
+    font-weight: bold;
+}
+nav ul li a:hover {
+    color: yellow; /* Couleur du texte au survol */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #365c34;
+    min-width: 200px;
+    box-shadow: 0px 2px 8px 0px #434242;
+    z-index: 5;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+nav ul li:hover .dropdown-content {
+    display: block;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.back-to-home {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    color: white;
+    background-color: #147117;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-home:hover {
+    background-color: #0e5a0e;
+}
+/* Menu coulissant */
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: #365c34 ;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    color: #f1f1f1;
+}
+
+.side-menu .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 36px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+/* Styles vidéo */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Aspect ratio 16:9 */
+    overflow: hidden;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Galerie kodfun */
+.content {
+    margin-top: 100px; /* Pour éviter de chevaucher le header */
+    text-align: center;
+      background-color : #365c34;
+}
+
+.kodfun-galeri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color : #4e8144;
+    padding: 20px;
+}
+
+.kodfun-galeri a {
+    flex: 1 1 200px;
+    max-width: 300px;
+    height: 200px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    text-decoration: none;
+}
+
+.kodfun-galeri a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Pied de page */
+footer {
+    background-color: #2b2b2b;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto;
+}
+
+.social-media {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0 0 0;
+}
+
+.social-media li {
+    display: inline;
+    margin: 0 1em;
+}
+
+.social-media li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+/* Media Queries pour rendre le site responsive */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .side-menu {
+        width: 300px; /* Ajustez la largeur du menu coulissant */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        display: none; /* Cacher le menu par défaut */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .dropdown-content {
+        position: static;
+    }
+
+    .dropdown-content a {
+        padding: 10px;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ffffff;
+    }
+}
+
+/* Section des habitations */
+.habitations-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.habitations-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.habitations-card img {
+    width: 100%;
+    height: auto;
+}
+
+.habitations-card h3 {
+    margin: 15px 0;
+    color: #147117;
+}
+
+.habitations-card p {
+    padding: 0 15px;
+    color: #333;
+}
+
+.habitations-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 15px 0;
+    color: white;
+    background-color: #147117;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.habitations.btn:hover {
+    background-color: #4e8144;
+}
+
+.habitations-card:hover {
+    transform: scale(1.05);
+}
+/* Sections */
+section {
+    background-color: #4e8144;
+ 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+/* Navigation des catégories */
+.category-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.category-nav button {
+    background-color: #147117;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.category-nav button:hover {
+    background-color: #0e5a0e;
+}
+
+.animal-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.animal-card {
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 200px;
+    position: relative;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.animal-card:hover {
+    transform: scale(1.05);
+}
+
+/* Section texte et image */
+.text-image-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #4e8144;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.text-image-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.image-content {
+    flex: 1;
+    text-align: center;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    color: white;
+    background-color: #147117;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0e5a0e;
+}
